@@ -8,6 +8,7 @@
   --foreground: #171717;
   --muted: #6b7280;
   --border: #e5e7eb;
+  --surface: #fafafa;
 }
 
 .dark {
@@ -15,6 +16,7 @@
   --foreground: #ededed;
   --muted: #9ca3af;
   --border: #262626;
+  --surface: #111111;
 }
 
 @theme inline {
@@ -22,7 +24,9 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-border: var(--border);
+  --color-surface: var(--surface);
   --font-sans: var(--font-inter);
+  --font-display: var(--font-outfit);
 }
 
 html {
@@ -37,4 +41,13 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Headings use the light display font everywhere, so member pages match. */
+@layer base {
+  h1, h2, h3 {
+    font-family: var(--font-display), var(--font-sans), sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
 }
