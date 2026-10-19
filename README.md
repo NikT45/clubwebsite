@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fordham CS Club website
 
-## Getting Started
+A simple Next.js site for the club. Clone it, add a page, open a pull request.
 
-First, run the development server:
+## Run it locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Add a page
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Make a folder in `src/app` named after the URL you want. For example, `src/app/projects` becomes `/projects`.
+2. Add a `page.tsx` in that folder that exports a React component. Copy `src/app/about/page.tsx` as a starting point.
+3. Add a link to your page in `src/components/nav.tsx`.
+4. Commit, push, and open a pull request.
 
-## Learn More
+## How it is put together
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app/layout.tsx` wraps every page with the nav, footer, and Inter font.
+- `src/app/globals.css` holds the color variables for light and dark mode.
+- `src/components/theme-toggle.tsx` switches between light and dark. Light is the default. The choice is saved in the browser.
+- Styling is Tailwind CSS. Use the `text-muted`, `border-border`, `bg-background`, and `text-foreground` classes so your page looks right in both themes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` starts the dev server.
+- `npm run build` makes a production build.
+- `npm run lint` runs ESLint.
